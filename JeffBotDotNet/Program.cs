@@ -1,7 +1,10 @@
 ﻿using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
+using JeffBotDotNet.Helpers;
+using Newtonsoft.Json;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace JeffBotDotNet
@@ -20,7 +23,7 @@ namespace JeffBotDotNet
             var serviceProvider = new Initialize(_commands, _client).BuildServiceProvider();
             await new CommandHandler(serviceProvider, _client, _commands).InstallCommandsAsync();
 
-            var token = "Nzc1NDA0NTQwNzY5MjA2MzE0.X6l1wA.L7GI2rFdgXBkzbKJF6_AP0Yj5gQ";
+            var token = Config.GetConfig().Token;
 
             await _client.LoginAsync(TokenType.Bot, token);
             await _client.StartAsync();
