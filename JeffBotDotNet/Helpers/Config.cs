@@ -13,6 +13,8 @@ namespace JeffBotDotNet.Helpers
         public static ConfigModel GetConfig()
         {
             var path = $"{Path.Combine(Environment.CurrentDirectory.Split(Path.DirectorySeparatorChar).SkipLast(3).ToArray())}{Path.DirectorySeparatorChar}Config.json";
+            Console.WriteLine($"FULL: {Path.Combine(Environment.CurrentDirectory.Split(Path.DirectorySeparatorChar))}");
+            Console.WriteLine($"PARTIAL: {Path.Combine(Environment.CurrentDirectory.Split(Path.DirectorySeparatorChar).SkipLast(3).ToArray())}");
             return JsonConvert.DeserializeObject<ConfigModel>(File.ReadAllText(path));
         }
     }
