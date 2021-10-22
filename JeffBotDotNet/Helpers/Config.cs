@@ -18,13 +18,15 @@ namespace JeffBotDotNet.Helpers
             
             if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                path = path.SkipLast(3);
+                return JsonConvert.DeserializeObject<ConfigModel>(
+                    File.ReadAllText($"{Path.Combine(Environment.CurrentDirectory.Split(Path.DirectorySeparatorChar).SkipLast(3).ToArray())}{Path.DirectorySeparatorChar}Config.json"));
+            }
+            if(RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                return JsonConvert.DeserializeObject<ConfigModel>(File.ReadAllText("Config.json"));
             }
 
-            Console.WriteLine($"FULL: {Path.Combine(Environment.CurrentDirectory.Split(Path.DirectorySeparatorChar))}");
-            Console.WriteLine($"PARTIAL: {Path.Combine(path.ToArray())}");
-            Console.WriteLine($"{File.ReadAllText("Config.json")}");
-            return JsonConvert.DeserializeObject<ConfigModel>(File.ReadAllText($"{Path.Combine(path.ToArray())}{Path.DirectorySeparatorChar}Config.json"));
+            throw new NotImplementedException($"What OS are you using??  Never heard of {RuntimeInformation.OSDescription}");
         }
     }
 
