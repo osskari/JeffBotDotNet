@@ -23,6 +23,7 @@ namespace JeffBotDotNet.Helpers
 
             Console.WriteLine($"FULL: {Path.Combine(Environment.CurrentDirectory.Split(Path.DirectorySeparatorChar))}");
             Console.WriteLine($"PARTIAL: {Path.Combine(path.ToArray())}");
+            Console.WriteLine($"{File.ReadAllText("Config.json")}");
             return JsonConvert.DeserializeObject<ConfigModel>(File.ReadAllText($"{Path.Combine(path.ToArray())}{Path.DirectorySeparatorChar}Config.json"));
         }
     }
