@@ -33,8 +33,8 @@ namespace JeffBotDotNet.Modules
         public async Task HelpAsync()
         {
             var a = new Discord.EmbedBuilder();
-            a.AddField("name", "value");
-            a.AddField("name2", "value2", true);
+            a.AddField("name", "value420");
+            a.AddField("name2", "value69", true);
             await ReplyAsync(embed: a.Build());
             //throw new NotImplementedException();
         }
