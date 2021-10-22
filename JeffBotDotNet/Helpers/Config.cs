@@ -12,12 +12,8 @@ namespace JeffBotDotNet.Helpers
     {
         public static ConfigModel GetConfig()
         {
-            
-            return JsonConvert.DeserializeObject<ConfigModel>(
-                File.ReadAllText(
-                    Path.Combine(Path.Combine(Environment.CurrentDirectory.Split(Path.DirectorySeparatorChar).SkipLast(3).ToArray()), "Config.json")
-                    )
-                );
+            var path = $"{Path.Combine(Environment.CurrentDirectory.Split(Path.DirectorySeparatorChar).SkipLast(3).ToArray())}{Path.DirectorySeparatorChar}Config.json";
+            return JsonConvert.DeserializeObject<ConfigModel>(File.ReadAllText(path));
         }
     }
 
