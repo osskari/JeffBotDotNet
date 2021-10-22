@@ -12,9 +12,10 @@ namespace JeffBotDotNet.Helpers
     {
         public static ConfigModel GetConfig()
         {
+            
             return JsonConvert.DeserializeObject<ConfigModel>(
                 File.ReadAllText(
-                    $"{string.Join("\\", Environment.CurrentDirectory.Split("\\").SkipLast(3))}\\Config.json"
+                    Path.Combine(Path.Combine(Environment.CurrentDirectory.Split(Path.DirectorySeparatorChar).SkipLast(3).ToArray()), "Config.json")
                     )
                 );
         }
