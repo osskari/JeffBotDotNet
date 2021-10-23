@@ -16,12 +16,12 @@ namespace JeffBotDotNet.Modules
         { 
             if(Context.User.Username == "VigilantBaker")
             {
-                await ReplyAsync("Greg you are not allowed");
+                //await ReplyAsync("Greg you are not allowed");
                 return;
             }
             if(Context.User.Username == "KoiPoro")
             {
-                await ReplyAsync("Koi you are not allowed");
+                //await ReplyAsync("Koi you are not allowed");
                 return;
             }
             await ReplyAsync(echo);
