@@ -14,6 +14,16 @@ namespace JeffBotDotNet.Modules
         [Summary("Echoes a message.")]
         public async Task SayAsync([Remainder] [Summary("The text to echo")] string echo)
         {
+            if(Context.User.Username == "VigilantBaker")
+            {
+                await ReplyAsync("Greg you are not allowed");
+                return;
+            }
+            if(Context.User.Username == "KoiPoro")
+            {
+                await ReplyAsync("Koi you are not allowed");
+                return;
+            }
             await ReplyAsync(echo);
         }
     }
