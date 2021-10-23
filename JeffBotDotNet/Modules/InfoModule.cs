@@ -44,7 +44,7 @@ namespace JeffBotDotNet.Modules
         public async Task UserInfoAsync([Summary("the (optional) user to get info from")] SocketUser user=null)
         {
             var userInfo = user ?? Context.Message.Author;
-            await ReplyAsync($"{userInfo.Username}#{userInfo.Discriminator}");
+            await ReplyAsync($"{userInfo.Username}#69{userInfo.Discriminator}");
         }
     }
 }
